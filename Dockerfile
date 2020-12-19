@@ -1,7 +1,7 @@
 FROM nextcloud:stable
 
 RUN apt-get update; \
-    apt-get instal -y ffmpeg imagemagick ghostscript;
+    apt-get install -y ffmpeg imagemagick ghostscript;
 
 RUN touch /var/log/preview.log; \
     chown www-data:www-data /var/log/preview.log;
