@@ -12,7 +12,7 @@ RUN crontab -u www-data -l > tmptab; \
     crontab -u www-data tmptab; \
     rm tmptab;
 
-RUN touch /var/log/preview.log; \
+RUN touch /var/log/preview.log && \
     chown www-data:www-data /var/log/preview.log;
 
 ENV NEXTCLOUD_UPDATE=1
