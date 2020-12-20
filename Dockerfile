@@ -3,8 +3,7 @@ FROM nextcloud:stable
 RUN apt-get update; \
     apt-get install -y cron ffmpeg imagemagick ghostscript;
 
-RUN service cron start; \
-    update-rc.d cron defaults;
+RUN update-rc.d cron defaults;
 
 RUN crontab -u www-data -l > tmptab; \
     echo '*/10 * * * * /usr/local/bin/php -f /var/www/html/occ preview:pre-generate -vvv >> /var/log/preview.log 2>&1' >> tmptab; \
