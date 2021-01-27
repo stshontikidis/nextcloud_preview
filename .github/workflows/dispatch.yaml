@@ -1,5 +1,4 @@
 name: Rebuild
-description: This should rebuild the image when nextcloud base image is updated
 
 on:
   workflow_dispatch:
