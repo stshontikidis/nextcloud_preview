@@ -3,6 +3,9 @@ FROM nextcloud:stable
 RUN apt-get update && \
     apt-get install -y cron ffmpeg imagemagick ghostscript;
 
+RUN sed '/domain="coder" rights="none" pattern="PDF/ s/none/read|write/"' /etc/ImageMagick-6/policy.xml > /tmp/policy.xml \
+    && mv /tmp/policy.xml /etc/ImageMagick-6/policy.xml
+
 RUN apt-get install -y supervisor \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir /var/log/supervisord /var/run/supervisord
