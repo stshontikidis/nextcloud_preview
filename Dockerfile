@@ -11,7 +11,7 @@ RUN apt-get install -y supervisor \
   && mkdir /var/log/supervisord /var/run/supervisord
 
 RUN crontab -u www-data -l > tmptab; \
-    echo '*/10 * * * * /usr/local/bin/php -f /var/www/html/occ preview:pre-generate -vvv >> /var/log/preview.log 2>&1' >> tmptab; \
+    echo '*/10 * * * * PHP_MEMORY_LIMIT=512M /usr/local/bin/php -f /var/www/html/occ preview:pre-generate -vvv >> /var/log/preview.log 2>&1' >> tmptab; \
     crontab -u www-data tmptab; \
     rm tmptab;
 
