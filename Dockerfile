@@ -20,7 +20,6 @@ RUN touch /var/log/preview.log && \
 
 ENV NEXTCLOUD_UPDATE=1
 
-COPY sudo_env /etc/sudoers.d/
 COPY supervisord.conf /
 
 CMD ["/usr/bin/supervisord", "-c", "/supervisord.conf"]
